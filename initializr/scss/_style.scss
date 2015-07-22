@@ -1,67 +1,171 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300|Oswald:700,300);
 
+//Colors
+
+$white:#FFF;
+$grey:#d2cfcf;
+$lblue:#6bdfeb;
+$blue:#2e4555;
+$green:#9adf85;
+
+/*-------------------------------
+             GENERAL 
+-------------------------------*/
+
 body {
-  color:#6bdfeb;
-  background-color: #2e4555;
+  background: url(../img/banquise.png) no-repeat;
+  background-position: bottom;
+  background-color: $blue;
+  color: $lblue;
   font-family: 'Oswald', sans-serif;
 }
 .home-screen img {
   width: 100%;
   height: auto;
 }
-.container {
-	max-width:748px;
-}
-.cadre {
-  margin-top: 10px;
-  padding: 3px;
-  background-color: white;
-  border-bottom: 6px solid #9adf85;
-}
-.screen {
-  width: 100%;
-}
+
+.container { max-width:748px; }
+
+.screen { width: 100%; }
+
 h2 {
-  width: 76px;
+  width: 76.5px;
+
+  border-bottom: 3px solid $lblue;
+
   font-weight: 700;
   font-size: 24px;
-  border-bottom: 3px solid #6bdfeb;
 }
 h3 {
   margin:10px 0 20px 0;
+
   font-weight: 700;
   text-transform: uppercase;
   font-size: 14px;
 }
 hr {
-  margin:0;
+  margin:0 0 30px 0;
   position: relative;
   top: -10px;
-  border-color: #6bdfeb;
+
+  border-color: $lblue;
+}
+
+/*-------------------------------
+            TRAVAUX 
+-------------------------------*/
+
+.cadre {
+  margin-top: 10px;
+  padding: 3px;
+
+  border-bottom: 6px solid $green;
+
+  background-color: $white;
+  
 }
 .carre {
   display: inline-block;
   margin-bottom: 10px;
 }
 nav {
-  margin-top: 30px;
-  cursor: pointer;
   text-align: center;
   font-size: 16px;
 }
-ul {
-  padding: 0;
-}
+
+ul { padding: 0; }
+
 li {
-  list-style-type: none;
   display: inline-block;
+
+  list-style-type: none;
+  cursor: pointer;
 }
 li:not(:last-child):after {
   content: ' / ';
-  cursor: auto;
 }
+
+/*-------------------------------
+             PROFIL 
+-------------------------------*/
+
+.profil {
+  .img-profil {
+    margin: 0 25%;
+    width: 50%;
+  }
+  .wrapper-img { margin: 0 25%; }
+  p {
+    padding-top: 10px;
+
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  .name { font-size: 17px; }
+  .title { text-decoration: underline; }
+  .description { font-family: 'Lato', sans-serif; }
+}
+
+/*-------------------------------
+       CONTACT FORMULAIRE
+-------------------------------*/
+
+input[type=text],textarea {
+  width: 100%;
+  
+  border: 1px solid $lblue;
+
+  background-color: $white;
+  
+  color: $lblue;
+  font-family: 'Lato', sans-serif;
+}
+input[type=submit],input[type=text],textarea { padding: 5px; }
+input[type=submit] {
+  width: 20%;
+  margin: 0 40%;
+
+  border: 1px solid $lblue;
+
+  background-color: $lblue;
+  
+  color: $white;
+}
+input[type=submit]:hover {
+  background-color:$white;
+  color: $lblue;
+}
+::-webkit-input-placeholder { color: $grey; }
+
+:-moz-placeholder { color: $grey; } /* Firefox 18- */
+
+::-moz-placeholder { color: $grey; } /* Firefox 19+ */
+
+:-ms-input-placeholder { color: $grey; }
+
+textarea {
+  resize:none;
+  height: 100px;
+}
+
+/*-------------------------------
+          SMALL SCREEN
+-------------------------------*/
+
 @media (max-width: 992px) {
 	.container {
 		max-width:450px;
 	}
+}
+
+/*-------------------------------
+          LARGE SCREEN
+-------------------------------*/
+
+@media (min-width: 992px) {
+  input[type=text],textarea {
+    width: 50%;
+    margin: 0 25%;
+  }
 }
