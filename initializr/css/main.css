@@ -5796,32 +5796,34 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+/*-------------------------------
+             GENERAL 
+-------------------------------*/
 body {
-  color: #6bdfeb;
+  background: url(../img/banquise.png) no-repeat;
+  background-position: bottom;
   background-color: #2e4555;
+  color: #6bdfeb;
   font-family: 'Oswald', sans-serif; }
 
 .home-screen img {
   width: 100%;
   height: auto; }
 
+.clear {
+  clear: both; }
+
 .container {
   max-width: 748px; }
-
-.cadre {
-  margin-top: 10px;
-  padding: 3px;
-  background-color: white;
-  border-bottom: 6px solid #9adf85; }
 
 .screen {
   width: 100%; }
 
 h2 {
-  width: 76px;
+  width: 76.5px;
+  border-bottom: 3px solid #6bdfeb;
   font-weight: 700;
-  font-size: 24px;
-  border-bottom: 3px solid #6bdfeb; }
+  font-size: 24px; }
 
 h3 {
   margin: 10px 0 20px 0;
@@ -5830,18 +5832,27 @@ h3 {
   font-size: 14px; }
 
 hr {
-  margin: 0;
+  margin: 0 0 30px 0;
   position: relative;
   top: -10px;
   border-color: #6bdfeb; }
+
+/*-------------------------------
+            TRAVAUX 
+-------------------------------*/
+.cadre {
+  margin-top: 10px; }
+
+.wrapper-travaux {
+  padding: 3px;
+  border-bottom: 6px solid #9adf85;
+  background-color: #FFF; }
 
 .carre {
   display: inline-block;
   margin-bottom: 10px; }
 
 nav {
-  margin-top: 30px;
-  cursor: pointer;
   text-align: center;
   font-size: 16px; }
 
@@ -5849,15 +5860,83 @@ ul {
   padding: 0; }
 
 li {
+  display: inline-block;
   list-style-type: none;
-  display: inline-block; }
+  cursor: pointer; }
 
 li:not(:last-child):after {
-  content: ' / ';
-  cursor: auto; }
+  content: ' / '; }
 
+/*-------------------------------
+             PROFIL 
+-------------------------------*/
+.profil {
+  margin-bottom: 50px; }
+  .profil p {
+    font-size: 20px;
+    text-decoration: underline; }
+  .profil .profil-passion, .profil .profil-techno {
+    display: inline-block;
+    text-align: center; }
+  .profil .profil-passion {
+    width: 39%; }
+  .profil .profil-techno {
+    width: 60%; }
+
+/*-------------------------------
+       CONTACT FORMULAIRE
+-------------------------------*/
+input[type=text], textarea {
+  width: 100%;
+  border: 1px solid #6bdfeb;
+  background-color: #FFF;
+  color: #6bdfeb;
+  font-family: 'Lato', sans-serif; }
+
+input[type=submit], input[type=text], textarea {
+  padding: 5px; }
+
+input[type=submit] {
+  width: 20%;
+  margin: 0 40%;
+  border: 1px solid #6bdfeb;
+  background-color: #6bdfeb;
+  color: #FFF; }
+
+input[type=submit]:hover {
+  background-color: #FFF;
+  color: #6bdfeb; }
+
+::-webkit-input-placeholder {
+  color: #d2cfcf; }
+
+:-moz-placeholder {
+  color: #d2cfcf; }
+
+/* Firefox 18- */
+::-moz-placeholder {
+  color: #d2cfcf; }
+
+/* Firefox 19+ */
+:-ms-input-placeholder {
+  color: #d2cfcf; }
+
+textarea {
+  resize: none;
+  height: 100px; }
+
+/*-------------------------------
+          SMALL SCREEN
+-------------------------------*/
 @media (max-width: 992px) {
   .container {
     max-width: 450px; } }
+/*-------------------------------
+          LARGE SCREEN
+-------------------------------*/
+@media (min-width: 992px) {
+  input[type=text], textarea {
+    width: 50%;
+    margin: 0 25%; } }
 
 /*# sourceMappingURL=main.css.map */

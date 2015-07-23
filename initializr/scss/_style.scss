@@ -23,7 +23,9 @@ body {
   width: 100%;
   height: auto;
 }
-
+.clear {
+  clear: both;
+}
 .container { max-width:748px; }
 
 .screen { width: 100%; }
@@ -55,14 +57,14 @@ hr {
             TRAVAUX 
 -------------------------------*/
 
-.cadre {
-  margin-top: 10px;
+.cadre { margin-top: 10px; }
+
+.wrapper-travaux {
   padding: 3px;
 
   border-bottom: 6px solid $green;
 
   background-color: $white;
-  
 }
 .carre {
   display: inline-block;
@@ -90,21 +92,17 @@ li:not(:last-child):after {
 -------------------------------*/
 
 .profil {
-  .img-profil {
-    margin: 0 25%;
-    width: 50%;
-  }
-  .wrapper-img { margin: 0 25%; }
+  margin-bottom: 50px;
   p {
-    padding-top: 10px;
-
-    text-align: center;
-    font-size: 15px;
-    font-weight: 300;
+    font-size: 20px;
+    text-decoration: underline;
   }
-  .name { font-size: 17px; }
-  .title { text-decoration: underline; }
-  .description { font-family: 'Lato', sans-serif; }
+  .profil-passion,.profil-techno {
+    display: inline-block;
+    text-align: center;
+  }
+  .profil-passion {width: 39%;}
+  .profil-techno{width: 60%;}
 }
 
 /*-------------------------------
