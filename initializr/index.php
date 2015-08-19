@@ -1,3 +1,56 @@
+<?php 
+
+  require 'gump.class.php';
+  require 'PHPMailerAutoload.php';
+
+  $gump = new GUMP();
+
+  $_POST = $gump->sanitize($_POST); // You don't have to sanitize, but it's safest to do so.
+
+  $gump->validation_rules(array(
+      'mail'  => 'required|valid_email',
+      'objet' => 'required|max_len,100',
+      'msg'   => 'required|max_len,1666|min_len,6',
+  ));
+
+  $gump->filter_rules(array(
+      'mail'  => 'trim|sanitize_email',
+      'objet' => 'trim|sanitize_string',
+      'msg'   => 'trim|sanitize_string',
+  ));
+
+  $validated_data = $gump->run($_POST);
+
+  if($validated_data === false) {
+      echo $gump->get_readable_errors(true);
+  } else {
+    // Form is valid we send the mail !
+    // https://github.com/PHPMailer/PHPMailer#a-simple-example
+
+    $mail = new PHPMailer;
+
+    $mail->isMail();
+
+    $mail->From = $_POST['mail'];
+    $mail->addAddress('skullmasher@heartlessgaming.com', 'Skullmasher Heartless');
+    $mail->addCC('contact@nekochan.io', 'Neko');
+    $mail->addCC('mathilde.couvreur@gmail.com', 'Mathilde Couvreur');
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+    $mail->Subject = '[TEST]' . $_POST['objet'];
+    $mail->Body    = $_POST['msg'];
+    $mail->AltBody = $_POST['msg'];
+
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+  }
+
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -107,10 +160,10 @@
       <div class="contact">
         <h2>Contact</h2>
         <hr>
-        <form method="post" action="traitement.php">
-          <p><input type="text" name="nom" placeholder="Votre e-mail..."/></p>
+        <form method="post" action="index.php">
+          <p><input type="text" name="mail" placeholder="Votre e-mail..."/></p>
           <p><input type="text" name="objet" placeholder="Sujet..."/></p>
-          <p><textarea name="ameliorer" placeholder="Votre message" ></textarea></p>
+          <p><textarea name="msg" placeholder="Votre message" ></textarea></p>
           <p><input type="submit" value="Envoyer"/></p>
         </form>
       </div>
